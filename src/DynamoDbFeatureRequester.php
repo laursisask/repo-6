@@ -51,7 +51,7 @@ class DynamoDbFeatureRequester extends FeatureRequesterBase
         return $attr['S'] ?? null;
     }
 
-    protected function readItemStringList(string $namespace): array
+    protected function readItemStringList(string $namespace): ?array
     {
         $items = array();
         $request = array(
