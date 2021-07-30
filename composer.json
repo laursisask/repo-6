@@ -1,6 +1,12 @@
 {
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/launchdarkly/php-server-sdk-private.git"
+        }
+    ],
     "name": "launchdarkly/server-sdk-dynamodb",
-    "description": "Official LaunchDarkly dynamodb integration for the PHP server SDK",
+    "description": "LaunchDarkly PHP SDK DynamoDB integration",
     "keywords": [
         "launchdarkly",
         "launchdarkly php"
@@ -9,14 +15,14 @@
     "license": "Apache-2.0",
     "authors": [
         {
-            "name": "LaunchDarkly <team@launchdarkly.com>",
+            "name": "LaunchDarkly <sdks@launchdarkly.com>",
             "homepage": "http://launchdarkly.com/"
         }
     ],
     "require": {
         "php": ">=7.3",
         "aws/aws-sdk-php": "^3.86",
-        "launchdarkly/server-sdk": "^4"
+        "launchdarkly/server-sdk": "4.0.x-dev"
     },
     "config": {
         "sort-packages": true

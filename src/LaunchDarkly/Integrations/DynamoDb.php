@@ -1,6 +1,8 @@
 <?php
 namespace LaunchDarkly\Integrations;
 
+use \LaunchDarkly\Impl\Integrations\DynamoDbFeatureRequester;
+
 class DynamoDb
 {
     /**
@@ -27,8 +29,7 @@ class DynamoDb
     public static function featureRequester($options = array())
     {
         return function ($baseUri, $sdkKey, $baseOptions) use ($options) {
-            return new Impl\DynamoDbFeatureRequester($baseUri, $sdkKey, array_merge($baseOptions, $options));
+            return new DynamoDbFeatureRequester($baseUri, $sdkKey, array_merge($baseOptions, $options));
         };
     }
 }
-    

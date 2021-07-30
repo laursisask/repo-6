@@ -29,7 +29,7 @@ class DynamoDbFeatureRequester extends FeatureRequesterBase
         $this->_prefix = ($prefix != null && $prefix != '') ? ($prefix . ':') : '';
     }
 
-    protected function readItemString($namespace, $key)
+    protected function readItemString(string $namespace, string $key): ?string
     {
         $request = array(
             'TableName' => $this->_tableName,
@@ -51,7 +51,7 @@ class DynamoDbFeatureRequester extends FeatureRequesterBase
         return isset($attr['S']) ? $attr['S'] : null;
     }
 
-    protected function readItemStringList($namespace)
+    protected function readItemStringList(string $namespace): ?array
     {
         $items = array();
         $request = array(
