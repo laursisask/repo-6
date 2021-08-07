@@ -3,6 +3,9 @@ namespace LaunchDarkly\Impl\Integrations;
 
 use Aws\DynamoDb\DynamoDbClient;
 
+/**
+ * @internal
+ */
 class DynamoDbFeatureRequester extends FeatureRequesterBase
 {
     /** @var string */
