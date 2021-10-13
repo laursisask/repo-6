@@ -99,14 +99,14 @@ type OutputPlugin struct {
 	Concurrency           int
 	concurrencyRetryLimit int
 	// Concurrency is the limit, goroutineCount represents the running goroutines
-	goroutineCount        int32
+	goroutineCount int32
 	// Used to implement backoff for concurrent flushes
-	concurrentRetries     uint32
-	isAggregate           bool
-	aggregator            *aggregate.Aggregator
-	compression           CompressionType
+	concurrentRetries uint32
+	isAggregate       bool
+	aggregator        *aggregate.Aggregator
+	compression       CompressionType
 	// If specified, dots in key names should be replaced with other symbols
-	replaceDots           string
+	replaceDots string
 }
 
 // NewOutputPlugin creates an OutputPlugin object
@@ -126,7 +126,7 @@ func NewOutputPlugin(region, stream, dataKeys, partitionKey, roleARN, kinesisEnd
 		return nil, err
 	}
 
-	stringGen := util.NewRandomStringGenerator(8)
+	stringGen := util.NewRandomStringGenerator(16)
 
 	var timeFormatter *strftime.Strftime
 	if timeKey != "" {
