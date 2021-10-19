@@ -126,7 +126,7 @@ func NewOutputPlugin(region, stream, dataKeys, partitionKey, roleARN, kinesisEnd
 		return nil, err
 	}
 
-	stringGen := util.NewRandomStringGenerator(16)
+	stringGen := util.NewRandomStringGenerator()
 
 	var timeFormatter *strftime.Strftime
 	if timeKey != "" {
