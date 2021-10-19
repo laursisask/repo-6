@@ -6,10 +6,6 @@ import (
 	"time"
 )
 
-const (
-	partitionKeyCharset = "abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-)
-
 type RandomStringGenerator struct {
 	seededRandom *rand.Rand
 	buffer       []byte

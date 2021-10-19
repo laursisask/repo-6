@@ -37,6 +37,7 @@ const (
 
 var (
 	pluginInstances []*kinesis.OutputPlugin
+	batchSizeInt    int
 )
 
 func addPluginInstance(ctx unsafe.Pointer) error {
@@ -89,6 +90,8 @@ func newKinesisOutput(ctx unsafe.Pointer, pluginID int) (*kinesis.OutputPlugin, 
 	logrus.Infof("[kinesis %d] plugin parameter compression = '%s'", pluginID, compression)
 	replaceDots := output.FLBPluginConfigKey(ctx, "replace_dots")
 	logrus.Infof("[kinesis %d] plugin parameter replace_dots = '%s'", pluginID, replaceDots)
+	batchSize := output.FLBPluginConfigKey(ctx, "batch_size")
+	logrus.Infof("[kinesis %d] plugin parameter batch_size = '%s'", pluginID, batchSize)
 
 	if stream == "" || region == "" {
 		return nil, fmt.Errorf("[kinesis %d] stream and region are required configuration parameters", pluginID)
@@ -147,6 +150,27 @@ func newKinesisOutput(ctx unsafe.Pointer, pluginID int) (*kinesis.OutputPlugin, 
 		}
 	} else {
 		concurrencyRetriesInt = defaultConcurrentRetries
+	}
+
+	if batchSize != "" {
+		batchSizeInt, err = strconv.Atoi(batchSize)
+		if err != nil {
+			logrus.Errorf("[kinesis %d] Invalid 'batch_size' value %s specified: %v", pluginID, batchSize, err)
+			return nil, err
+		}
+		if batchSizeInt < 0 {
+			return nil, fmt.Errorf("[kinesis %d] Invalid 'batch_size' value (%s) specified, must be a non-negative number", pluginID, concurrency)
+		}
+
+		if batchSizeInt > maximumRecordsPerPut {
+			return nil, fmt.Errorf("[kinesis %d] Invalid 'batch_size' value (%s) specified, must be less than or equal to %d", pluginID, concurrency, maximumRecordsPerPut)
+		}
+
+		if batchSizeInt > 0 {
+			logrus.Infof("[kinesis %d] Using the 'batch_size' of (%s)", pluginID, batchSize)
+		}
+	} else {
+		batchSizeInt = maximumRecordsPerPut
 	}
 
 	var comp kinesis.CompressionType
@@ -210,7 +234,7 @@ func unpackRecords(kinesisOutput *kinesis.OutputPlugin, data unsafe.Pointer, len
 	var record map[interface{}]interface{}
 	count := 0
 
-	records := make([]*kinesisAPI.PutRecordsRequestEntry, 0, maximumRecordsPerPut)
+	records := make([]*kinesisAPI.PutRecordsRequestEntry, 0, batchSizeInt)
 
 	// Create Fluent Bit decoder
 	dec := output.NewDecoder(data, int(length))
