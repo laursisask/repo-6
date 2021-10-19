@@ -48,7 +48,6 @@ const (
 
 const (
 	// Kinesis API Limit https://docs.aws.amazon.com/sdk-for-go/api/service/kinesis/#Kinesis.PutRecords
-	maximumRecordsPerPut      = 500
 	maximumPutRecordBatchSize = 1024 * 1024 * 5 // 5 MB
 	maximumRecordSize         = 1024 * 1024     // 1 MB
 
@@ -107,10 +106,11 @@ type OutputPlugin struct {
 	compression       CompressionType
 	// If specified, dots in key names should be replaced with other symbols
 	replaceDots string
+	batchSize   int
 }
 
 // NewOutputPlugin creates an OutputPlugin object
-func NewOutputPlugin(region, stream, dataKeys, partitionKey, roleARN, kinesisEndpoint, stsEndpoint, timeKey, timeFmt, logKey, replaceDots string, concurrency, retryLimit int, isAggregate, appendNewline bool, compression CompressionType, pluginID int) (*OutputPlugin, error) {
+func NewOutputPlugin(region, stream, dataKeys, partitionKey, roleARN, kinesisEndpoint, stsEndpoint, timeKey, timeFmt, logKey, replaceDots string, concurrency, retryLimit int, isAggregate, appendNewline bool, compression CompressionType, pluginID int, batchSize int) (*OutputPlugin, error) {
 	client, err := newPutRecordsClient(roleARN, region, kinesisEndpoint, stsEndpoint, pluginID)
 	if err != nil {
 		return nil, err
@@ -163,6 +163,7 @@ func NewOutputPlugin(region, stream, dataKeys, partitionKey, roleARN, kinesisEnd
 		aggregator:            aggregator,
 		compression:           compression,
 		replaceDots:           replaceDots,
+		batchSize:             batchSize,
 	}, nil
 }
 
@@ -301,13 +302,13 @@ func (outputPlugin *OutputPlugin) FlushAggregatedRecords(records *[]*kinesis.Put
 // Returns FLB_OK, FLB_RETRY, FLB_ERROR
 func (outputPlugin *OutputPlugin) Flush(records *[]*kinesis.PutRecordsRequestEntry) int {
 	// Use a different buffer to batch the logs
-	requestBuf := make([]*kinesis.PutRecordsRequestEntry, 0, maximumRecordsPerPut)
+	requestBuf := make([]*kinesis.PutRecordsRequestEntry, 0, outputPlugin.batchSize)
 	dataLength := 0
 
 	for i, record := range *records {
 		newRecordSize := len(record.Data) + len(aws.StringValue(record.PartitionKey))
 
-		if len(requestBuf) == maximumRecordsPerPut || (dataLength+newRecordSize) > maximumPutRecordBatchSize {
+		if len(requestBuf) == outputPlugin.batchSize || (dataLength+newRecordSize) > maximumPutRecordBatchSize {
 			retCode, err := outputPlugin.sendCurrentBatch(&requestBuf, &dataLength)
 			if err != nil {
 				logrus.Errorf("[kinesis %d] %v\n", outputPlugin.PluginID, err)
