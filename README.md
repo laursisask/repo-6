@@ -1,6 +1,8 @@
 # LaunchDarkly Server-Side SDK for PHP - DynamoDB integration
 
 [![CircleCI](https://circleci.com/gh/launchdarkly/php-server-sdk-dynamodb.svg?style=svg)](https://circleci.com/gh/launchdarkly/php-server-sdk-dynamodb)
+[![Packagist](https://img.shields.io/packagist/v/launchdarkly/server-sdk-dynamodb.svg?style=flat-square)](https://packagist.org/packages/launchdarkly/server-sdk-dynamodb)
+[![Documentation](https://img.shields.io/static/v1?label=GitHub+Pages&message=API+reference&color=00add8)](https://launchdarkly.github.io/php-server-sdk-dynamodb)
 
 This library provides a DynamoDB-backed data source for the [LaunchDarkly PHP SDK](https://github.com/launchdarkly/php-server-sdk), replacing the default behavior of querying the LaunchDarkly service endpoints. The underlying DynamoDB client implementation is the [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/).
 
