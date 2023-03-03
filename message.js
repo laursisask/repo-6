@@ -8,6 +8,7 @@ const {
   SLACK_USERNAME,
   SLACK_CHANNEL,
   SLACK_CUSTOM_PAYLOAD,
+  SLACK_UNFURL_LINKS,
 } = process.env;
 
 const messageSingleton = (() => {
@@ -19,6 +20,9 @@ const messageSingleton = (() => {
     const message = {};
 
     message.text = getMessage(); // Args || DEFAULT_MESSAGE
+    if(SLACK_UNFURL_LINKS === 'true'){
+      message.unfurl_links = true;
+    }
 
     // override username
     if (SLACK_USERNAME) message.username = SLACK_USERNAME;
