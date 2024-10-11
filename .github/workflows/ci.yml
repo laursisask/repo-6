@@ -249,7 +249,7 @@ jobs:
         sudo sh -c ''echo 1 > /proc/sys/net/ipv4/ip_forward'''
     - continue-on-error: true
       name: Check out
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - continue-on-error: true
       name: Run Jenkins server
       run: "mkdir -p ${{ github.workspace }}/sources/jenkins-source/test_files/jenkins/data/secrets/\n\
@@ -555,7 +555,7 @@ jobs:
         sudo sh -c ''echo 1 > /proc/sys/net/ipv4/ip_forward'''
     - continue-on-error: true
       name: Check out
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - continue-on-error: true
       env:
         cache-name: cache-node-modules
@@ -840,7 +840,7 @@ jobs:
         sudo sh -c ''echo 1 > /proc/sys/net/ipv4/ip_forward'''
     - continue-on-error: true
       name: Check out
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - continue-on-error: true
       name: Setup Node
       uses: actions/setup-node@v3
