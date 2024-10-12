@@ -116,7 +116,7 @@
     "coveralls": "^3.1.1",
     "cross-env": "^7.0.3",
     "dtslint": "4.2.1",
-    "eslint": "^8.32.0",
+    "eslint": "^9.12.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-mocha-no-only": "^1.1.1",
