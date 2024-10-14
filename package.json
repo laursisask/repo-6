@@ -121,7 +121,7 @@
 		"@octokit/action": "5.0.2",
 		"@octokit/graphql": "5.0.5",
 		"@playwright/test": "1.38.1",
-		"@storybook/addon-a11y": "7.5.2",
+		"@storybook/addon-a11y": "8.1.11",
 		"@storybook/addon-actions": "^7.5.3",
 		"@storybook/addon-docs": "^7.5.2",
 		"@storybook/addon-essentials": "7.5.2",
