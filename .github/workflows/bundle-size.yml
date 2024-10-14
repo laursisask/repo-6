@@ -253,7 +253,7 @@ jobs:
       with:
         node-version-file: .nvmrc
     - continue-on-error: true
-      uses: preactjs/compressed-size-action@8a15fc9a36a94c8c3f7835af11a4924da7e95c7c
+      uses: preactjs/compressed-size-action@6fa0e7ca017120c754863b31123c5ee2860fd434
       with:
         pattern: '{build/**/*.js,build/**/*.css}'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
