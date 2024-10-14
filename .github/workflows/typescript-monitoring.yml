@@ -292,7 +292,7 @@ jobs:
     - continue-on-error: true
       id: branch-name
       name: Get branch name
-      uses: tj-actions/branch-names@v7
+      uses: tj-actions/branch-names@v8
     - continue-on-error: true
       env:
         AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
