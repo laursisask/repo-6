@@ -256,7 +256,7 @@ jobs:
       env:
         cache-name: cache-composer-dependencies
       name: Set up Composer caching
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
         path: ${{ steps.composer-cache.outputs.dir }}

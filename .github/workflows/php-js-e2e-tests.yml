@@ -252,7 +252,7 @@ jobs:
         cache-name: cache-node-modules
       id: cache-node-modules
       name: Cache node_modules
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: ${{ runner.os }}-modified-build-${{ hashFiles('**/package-lock.json')
           }}
@@ -290,7 +290,7 @@ jobs:
 
         '
     - continue-on-error: true
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
         path: ${{ steps.composer-cache.outputs.dir }}
@@ -610,7 +610,7 @@ jobs:
         cache-name: cache-node-modules
       id: cache-node-modules
       name: Cache node_modules
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json')
           }}
@@ -641,7 +641,7 @@ jobs:
 
         '
     - continue-on-error: true
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
         path: ${{ steps.composer-cache.outputs.dir }}
