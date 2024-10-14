@@ -335,14 +335,14 @@ jobs:
     - continue-on-error: true
       if: ${{ failure() }}
       name: Upload artifacts on failure
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v4
       with:
         name: e2e-test-report-${{matrix.part}}
         path: reports/e2e
     - continue-on-error: true
       if: always()
       name: Archive flaky tests report
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v4
       with:
         if-no-files-found: ignore
         name: flaky-tests-report-${{ matrix.part }}
@@ -681,14 +681,14 @@ jobs:
     - continue-on-error: true
       if: ${{ failure() }}
       name: Upload artifacts on failure
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v4
       with:
         name: e2e-with-gutenberg-test-report-${{matrix.part}}
         path: reports/e2e
     - continue-on-error: true
       if: always()
       name: Archive flaky tests report
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v4
       with:
         if-no-files-found: ignore
         name: flaky-tests-report-${{ matrix.part }}
