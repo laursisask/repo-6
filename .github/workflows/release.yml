@@ -344,7 +344,7 @@ jobs:
     - continue-on-error: true
       if: startsWith(github.repository, 'spinnaker/')
       name: Login to GAR
-      uses: docker/login-action@v2
+      uses: docker/login-action@v3
       with:
         password: ${{ secrets.GAR_JSON_KEY }}
         registry: us-docker.pkg.dev
