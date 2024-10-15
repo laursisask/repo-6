@@ -34,7 +34,7 @@ require (
 	github.com/open-telemetry/opentelemetry-collector-contrib/processor/probabilisticsamplerprocessor v0.104.0
 	github.com/shirou/gopsutil/v3 v3.24.4
 	github.com/stretchr/testify v1.9.0
-	github.com/tinylib/msgp v1.1.8
+	github.com/tinylib/msgp v1.2.2
 	github.com/vmihailenco/msgpack/v4 v4.3.12
 	go.opentelemetry.io/collector/component v0.104.0
 	go.opentelemetry.io/collector/consumer v0.104.0
@@ -76,7 +76,7 @@ require (
 	github.com/open-telemetry/opentelemetry-collector-contrib/pkg/sampling v0.104.0 // indirect
 	github.com/opencontainers/runtime-spec v1.1.0-rc.3 // indirect
 	github.com/outcaste-io/ristretto v0.2.1 // indirect
-	github.com/philhofer/fwd v1.1.2 // indirect
+	github.com/philhofer/fwd v1.1.3-0.20240916144458-20a13a1f6b7c // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/power-devops/perfstat v0.0.0-20220216144756-c35f1ee13d7c // indirect
