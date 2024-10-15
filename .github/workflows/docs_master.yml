@@ -257,7 +257,7 @@ jobs:
         path: docs
         repository: spinnaker/spinnaker.io
     - continue-on-error: true
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         cache: gradle
         distribution: zulu
