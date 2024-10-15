@@ -11,7 +11,7 @@ require (
 	github.com/charmbracelet/bubbles v0.18.0
 	github.com/charmbracelet/bubbletea v0.26.6
 	github.com/charmbracelet/glamour v0.7.0
-	github.com/charmbracelet/lipgloss v0.11.0
+	github.com/charmbracelet/lipgloss v0.13.0
 	github.com/client9/gospell v0.0.0-20160306015952-90dfc71015df
 	github.com/confluentinc/ccloud-sdk-go-v1-public v0.0.0-20230822191820-abc0b42e8715
 	github.com/confluentinc/ccloud-sdk-go-v2/ai v0.1.0
@@ -129,7 +129,7 @@ require (
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/bufbuild/protocompile v0.10.0 // indirect
 	github.com/c-bata/go-prompt v0.2.6 // indirect
-	github.com/charmbracelet/x/ansi v0.1.2 // indirect
+	github.com/charmbracelet/x/ansi v0.1.4 // indirect
 	github.com/charmbracelet/x/input v0.1.0 // indirect
 	github.com/charmbracelet/x/term v0.1.1 // indirect
 	github.com/charmbracelet/x/windows v0.1.0 // indirect
