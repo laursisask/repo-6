@@ -35,7 +35,7 @@ require (
 	github.com/shirou/gopsutil/v3 v3.24.4
 	github.com/stretchr/testify v1.9.0
 	github.com/tinylib/msgp v1.1.8
-	github.com/vmihailenco/msgpack/v4 v4.3.12
+	github.com/vmihailenco/msgpack/v4 v4.3.13
 	go.opentelemetry.io/collector/component v0.104.0
 	go.opentelemetry.io/collector/consumer v0.104.0
 	go.opentelemetry.io/collector/pdata v1.11.0
