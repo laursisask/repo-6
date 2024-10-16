@@ -264,7 +264,7 @@ jobs:
     - continue-on-error: true
       name: Rebuild oasisprotocol/oasis-rosetta-gateway:${{ steps.branch_tag.outputs.tag
         }}
-      uses: docker/build-push-action@v5.1.0
+      uses: docker/build-push-action@v6.9.0
       with:
         build-args: 'GATEWAY_BRANCH=${{ steps.branch_tag.outputs.branch }}
 
