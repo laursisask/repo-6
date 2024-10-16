@@ -279,7 +279,7 @@ jobs:
     - continue-on-error: true
       if: failure()
       name: Discord notification FAILED
-      uses: Ilshidur/action-discord@0.3.0
+      uses: Ilshidur/action-discord@0.3.2
       with:
         args: 'Lint checks *FAILED* for {{GITHUB_REPOSITORY}}*
 
@@ -288,7 +288,7 @@ jobs:
     - continue-on-error: true
       if: success()
       name: Discord notification SUCCESS
-      uses: Ilshidur/action-discord@0.3.0
+      uses: Ilshidur/action-discord@0.3.2
       with:
         args: 'Lint checks *SUCCESSFUL!*
 
