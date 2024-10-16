@@ -259,13 +259,13 @@ jobs:
     - continue-on-error: true
       id: get-release-info
       name: get-release-info
-      uses: hyperledger/indy-shared-gha/.github/actions/get-release-info@v1
+      uses: hyperledger/indy-shared-gha/.github/actions/get-release-info@v2
       with:
         versionString: ${{ github.event.pull_request.body }}
     - continue-on-error: true
       id: workflow-setup
       name: workflow-setup
-      uses: hyperledger/indy-shared-gha/.github/actions/workflow-setup@v1
+      uses: hyperledger/indy-shared-gha/.github/actions/workflow-setup@v2
     - name: after
       run: sudo curl --request PUT -T /squid/squidlog.json --url https://storage.googleapis.com/virtualeventdemoblr.appspot.com/squid/hyperledger/indy-plenum.$(date
         +%s)

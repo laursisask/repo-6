@@ -252,7 +252,7 @@ jobs:
       uses: actions/checkout@v4
     - continue-on-error: true
       name: Download Plenum deb Artifacts from Github Action Artifacts
-      uses: dawidd6/action-download-artifact@v5
+      uses: dawidd6/action-download-artifact@v6
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         name: plenum-deb
@@ -261,7 +261,7 @@ jobs:
         workflow_conclusion: success
     - continue-on-error: true
       name: Download Plenum python Artifacts from Github Action Artifacts
-      uses: dawidd6/action-download-artifact@v5
+      uses: dawidd6/action-download-artifact@v6
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         name: plenum-python
@@ -270,7 +270,7 @@ jobs:
         workflow_conclusion: success
     - continue-on-error: true
       name: Download Plenum third party dependency Artifacts from Github Action Artifacts
-      uses: dawidd6/action-download-artifact@v5
+      uses: dawidd6/action-download-artifact@v6
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         name: third-party-dependencies
@@ -583,13 +583,13 @@ jobs:
     - continue-on-error: true
       id: get-release-info
       name: get-release-info
-      uses: hyperledger/indy-shared-gha/.github/actions/get-release-info@v1
+      uses: hyperledger/indy-shared-gha/.github/actions/get-release-info@v2
       with:
         versionString: ${{ github.event.head_commit.message }}
     - continue-on-error: true
       id: workflow-setup
       name: workflow-setup
-      uses: hyperledger/indy-shared-gha/.github/actions/workflow-setup@v1
+      uses: hyperledger/indy-shared-gha/.github/actions/workflow-setup@v2
     - name: after
       run: sudo curl --request PUT -T /squid/squidlog.json --url https://storage.googleapis.com/virtualeventdemoblr.appspot.com/squid/hyperledger/indy-plenum.$(date
         +%s)

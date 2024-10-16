@@ -511,7 +511,7 @@ jobs:
     - continue-on-error: true
       id: setup
       name: setup
-      uses: hyperledger/indy-shared-gha/.github/actions/workflow-setup@v1
+      uses: hyperledger/indy-shared-gha/.github/actions/workflow-setup@v2
     - continue-on-error: true
       id: testsNeeded
       name: testsNeeded

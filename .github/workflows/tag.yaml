@@ -265,7 +265,7 @@ jobs:
         '
     - continue-on-error: true
       name: Create Pull Request
-      uses: peter-evans/create-pull-request@v6
+      uses: peter-evans/create-pull-request@v7
       with:
         author: ${{ github.actor }} <${{ github.event.pusher.email }}>
         base: ${{ needs.taginfos.outputs.BASE }}
@@ -540,13 +540,13 @@ jobs:
     - continue-on-error: true
       id: get-branch
       name: extract branch
-      uses: hyperledger/indy-shared-gha/.github/actions/branch-from-tag@v1
+      uses: hyperledger/indy-shared-gha/.github/actions/branch-from-tag@v2
       with:
         tag: ${{ github.ref }}
     - continue-on-error: true
       id: get-release-info
       name: get-release-info
-      uses: hyperledger/indy-shared-gha/.github/actions/get-release-info@v1
+      uses: hyperledger/indy-shared-gha/.github/actions/get-release-info@v2
       with:
         versionString: ${{ github.ref }}
     - name: after
