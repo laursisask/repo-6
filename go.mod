@@ -5,7 +5,7 @@ go 1.22.3
 replace github.com/cometbft/cometbft => github.com/oasisprotocol/cometbft v0.37.2-oasis1
 
 require (
-	github.com/coinbase/rosetta-cli v0.10.3
+	github.com/coinbase/rosetta-cli v0.10.4
 	github.com/coinbase/rosetta-sdk-go v0.8.3
 	github.com/coinbase/rosetta-sdk-go/types v1.0.0
 	github.com/oasisprotocol/oasis-core/go v0.2400.0
