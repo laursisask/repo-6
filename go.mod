@@ -6,7 +6,7 @@ require (
 	cloud.google.com/go/pubsub v1.17.1
 	github.com/alecthomas/kingpin v2.2.6+incompatible
 	github.com/go-kit/kit v0.9.0
-	github.com/go-logr/logr v1.2.3
+	github.com/go-logr/logr v1.4.2
 	github.com/google/uuid v1.3.0
 	github.com/hashicorp/go-multierror v1.0.0
 	github.com/hashicorp/vault/api v1.0.4
