@@ -250,7 +250,7 @@ jobs:
       uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871
     - continue-on-error: true
       name: Run Trivy in config mode for deployments
-      uses: aquasecurity/trivy-action@5681af892cd0f4997658e2bacc62bd0a894cf564
+      uses: aquasecurity/trivy-action@915b19bbe73b92a6cf82a1bc12b087c9a19a5fe2
       with:
         exit-code: 1
         scan-ref: deployments/
@@ -508,7 +508,7 @@ jobs:
       uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871
     - continue-on-error: true
       name: Run Trivy in config mode for dockerfiles
-      uses: aquasecurity/trivy-action@5681af892cd0f4997658e2bacc62bd0a894cf564
+      uses: aquasecurity/trivy-action@915b19bbe73b92a6cf82a1bc12b087c9a19a5fe2
       with:
         exit-code: 1
         scan-ref: build/docker/
@@ -766,7 +766,7 @@ jobs:
       uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871
     - continue-on-error: true
       name: Run Trivy in fs mode
-      uses: aquasecurity/trivy-action@5681af892cd0f4997658e2bacc62bd0a894cf564
+      uses: aquasecurity/trivy-action@915b19bbe73b92a6cf82a1bc12b087c9a19a5fe2
       with:
         exit-code: 1
         scan-ref: .
@@ -1027,7 +1027,7 @@ jobs:
       uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871
     - continue-on-error: true
       name: Run Trivy in fs mode
-      uses: aquasecurity/trivy-action@5681af892cd0f4997658e2bacc62bd0a894cf564
+      uses: aquasecurity/trivy-action@915b19bbe73b92a6cf82a1bc12b087c9a19a5fe2
       with:
         exit-code: 1
         format: json
@@ -1037,7 +1037,7 @@ jobs:
         scan-type: fs
     - continue-on-error: true
       name: Show report in human-readable format
-      uses: aquasecurity/trivy-action@5681af892cd0f4997658e2bacc62bd0a894cf564
+      uses: aquasecurity/trivy-action@915b19bbe73b92a6cf82a1bc12b087c9a19a5fe2
       with:
         format: table
         image-ref: trivy-report.json
@@ -1047,7 +1047,7 @@ jobs:
     - continue-on-error: true
       if: ${{ inputs.upload-to-github-security-tab }}
       name: Convert report to sarif
-      uses: aquasecurity/trivy-action@5681af892cd0f4997658e2bacc62bd0a894cf564
+      uses: aquasecurity/trivy-action@915b19bbe73b92a6cf82a1bc12b087c9a19a5fe2
       with:
         format: sarif
         image-ref: trivy-report.json
@@ -1064,7 +1064,7 @@ jobs:
     - continue-on-error: true
       if: ${{ inputs.export-csv }}
       name: Convert report to csv
-      uses: aquasecurity/trivy-action@5681af892cd0f4997658e2bacc62bd0a894cf564
+      uses: aquasecurity/trivy-action@915b19bbe73b92a6cf82a1bc12b087c9a19a5fe2
       with:
         format: template
         image-ref: trivy-report.json
