@@ -21,7 +21,7 @@ require (
 	golang.org/x/sys v0.5.0
 	gomodules.xyz/jsonpatch/v3 v3.0.1
 	google.golang.org/api v0.58.0
-	gopkg.in/h2non/gock.v1 v1.0.15
+	gopkg.in/h2non/gock.v1 v1.1.2
 	gopkg.in/yaml.v2 v2.4.0
 	k8s.io/api v0.25.0
 	k8s.io/apimachinery v0.25.0
