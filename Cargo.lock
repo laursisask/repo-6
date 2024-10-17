@@ -509,7 +509,7 @@ name = "binary-merkle-tree"
 version = "4.0.0-dev"
 dependencies = [
  "array-bytes",
- "env_logger 0.9.3",
+ "env_logger",
  "hash-db",
  "log",
  "sp-core",
@@ -1919,19 +1919,6 @@ dependencies = [
 
 [[package]]
 name = "env_logger"
-version = "0.9.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a12e6657c4c97ebab115a42dcee77225f7f482cdd841cf7088c657a42e9e00e7"
-dependencies = [
- "atty",
- "humantime",
- "log",
- "regex",
- "termcolor",
-]
-
-[[package]]
-name = "env_logger"
 version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "85cdab6a89accf66733ad5a1693a4dcced6aeff64602b634530dd73c1f3ee9f0"
@@ -2037,7 +2024,7 @@ version = "0.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "84f2e425d9790201ba4af4630191feac6dcc98765b118d4d18e91d23c2353866"
 dependencies = [
- "env_logger 0.10.0",
+ "env_logger",
  "log",
 ]
 
@@ -5596,7 +5583,7 @@ dependencies = [
  "array-bytes",
  "assert_matches",
  "bitflags",
- "env_logger 0.9.3",
+ "env_logger",
  "frame-benchmarking",
  "frame-support",
  "frame-system",
@@ -5979,7 +5966,7 @@ name = "pallet-mmr"
 version = "4.0.0-dev"
 dependencies = [
  "array-bytes",
- "env_logger 0.9.3",
+ "env_logger",
  "frame-benchmarking",
  "frame-support",
  "frame-system",
@@ -8521,7 +8508,7 @@ dependencies = [
  "array-bytes",
  "assert_matches",
  "criterion",
- "env_logger 0.9.3",
+ "env_logger",
  "lru",
  "num_cpus",
  "parity-scale-codec",
@@ -8924,7 +8911,7 @@ name = "sc-rpc"
 version = "4.0.0-dev"
 dependencies = [
  "assert_matches",
- "env_logger 0.9.3",
+ "env_logger",
  "futures",
  "jsonrpsee",
  "log",
