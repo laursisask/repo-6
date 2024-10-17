@@ -258,7 +258,7 @@ jobs:
         url: ${{ github.server_url }}
     - continue-on-error: true
       name: Create badge
-      uses: emibcn/badge-action@4209421db54c8764d8932070ffd0f81715a629bf
+      uses: emibcn/badge-action@808173dd03e2f30c980d03ee49e181626088eee8
       with:
         color: blue
         label: Docker pulls
