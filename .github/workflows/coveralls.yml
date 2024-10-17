@@ -266,7 +266,7 @@ jobs:
       run: yarn coverage
     - continue-on-error: true
       name: Upload to coveralls
-      uses: coverallsapp/github-action@v2.1.0
+      uses: coverallsapp/github-action@v2.3.3
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: after
